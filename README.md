@@ -1,6 +1,9 @@
 # Sclub
 
-Administrative application for managing a sports club and athletes.
+Admin app for managing sports club and athletes. Built with Angular, NgRX, PrimeNG.
+
+## Demo
+[Demo here](https://phenomenal-granita-c78226.netlify.app/)
 
 ## Development server
 
