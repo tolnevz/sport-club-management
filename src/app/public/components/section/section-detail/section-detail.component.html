@@ -1,0 +1,21 @@
+<p-card styleClass="card">
+  <p-header>
+    <h5>Editing the sports section</h5>
+  </p-header>
+
+  <form [formGroup]="sectionForm" (ngSubmit)="saveSection()" #form="ngForm">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText formControlName="name" />
+      </div>
+      <div class="p-field">
+        <label for="name">External ID</label>
+        <input id="name" type="text" pInputText formControlName="externalId" />
+      </div>
+    </div>
+    <input pButton pRipple type="submit" [disabled]="form.invalid" value="Save" class="p-ripple p-button p-component" />
+
+  </form>
+
+</p-card>

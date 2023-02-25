@@ -1,0 +1,48 @@
+<p-card styleClass="card">
+  <p-header>
+    <h5>Editing the subscription type</h5>
+  </p-header>
+
+  <form [formGroup]="subscriptionTypeForm" (ngSubmit)="saveSubscriptionType()" #form="ngForm">
+    <div class="p-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-xs-12">
+          <div class="p-field">
+            <label for="name">Name</label>
+            <input id="name" type="text" pInputText formControlName="name" />
+          </div>
+          <div class="p-field">
+            <label for="section">Sports section</label>
+            <p-dropdown
+              [options]="sections"
+              formControlName="section"
+              placeholder="Select a sports section"
+              optionLabel="name"
+              [showClear]="true"
+            ></p-dropdown>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-12">
+          <div class="p-field">
+            <label for="lessonsCount">Number of lessons</label>
+            <p-inputNumber [showButtons]="true" formControlName="lessonsCount"></p-inputNumber>
+          </div>
+          <div class="p-field">
+            <label for="price">Price</label>
+            <p-inputNumber [showButtons]="true" mode="currency" currency="RUB" formControlName="price"></p-inputNumber>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-12">
+          <div class="p-field">
+            <label for="endDate">Validity period</label>
+            <p-calendar dateFormat="dd.mm.yy" formControlName="endDate"></p-calendar>
+          </div>
+          <div class="p-field" style="margin-top: 3.5em">
+            <p-checkbox [binary]="true" label="Active" formControlName="isActive"></p-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input pButton pRipple type="submit" [disabled]="form.invalid" value="Save" class="p-ripple p-button p-component" />
+  </form>
+</p-card>

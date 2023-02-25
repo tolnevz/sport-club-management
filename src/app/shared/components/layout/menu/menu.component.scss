@@ -1,0 +1,32 @@
+:host {
+  .app-menu-logo {
+    background-color: #42a5f5;
+
+    a {
+      display: block;
+      text-align: left;
+      height: 60px;
+      padding: 0;
+
+      img {
+        height: 40px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+::ng-deep .main-menu {
+  .p-menu {
+    width: 100%;
+    border: none;
+
+    .p-menu-list {
+      .p-menuitem {
+        .p-menuitem-link-active {
+          background: rgba(0, 0, 0, 0.08);
+        }
+      }
+    }
+  }
+}

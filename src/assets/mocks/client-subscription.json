@@ -1,0 +1,97 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "subscriptionType": {
+        "id": 1,
+        "name": "Pass #1",
+        "section": { "id": 3, "name": "Wrestling", "externalId": "wrestling" },
+        "endDate": 1635595200000,
+        "lessonsCount": 30,
+        "price": 15000,
+        "isActive": 1
+      },
+      "section": { "id": 3, "name": "Wrestling", "externalId": "wrestling" },
+      "client": {
+        "id": 1,
+        "fio": "Michael Williams",
+        "dateOfBirth": 1266254860000,
+        "phone": "+79991023665",
+        "email": "m_wiliams@gmail.com",
+        "contact1": { "fio": "John Stone", "phone": "+79653661028", "email": "j_stone@gmail.com" },
+        "contact2": { "fio": "Anna Phillips", "phone": "+79657871900", "email": "a_phillips@gmail.com" }
+      },
+      "startDate": 1628604571000
+    },
+    {
+      "id": 2,
+      "subscriptionType": {
+        "id": 4,
+        "name": "Pass #4",
+        "section": { "id": 5, "name": "Basketball", "externalId": "basketball" },
+        "endDate": 1628172571000,
+        "lessonsCount": 10,
+        "price": 10000,
+        "isActive": 1
+      },
+      "section": { "id": 5, "name": "Basketball", "externalId": "basketball" },
+      "client": {
+        "id": 3,
+        "fio": "Natali Wong",
+        "dateOfBirth": 968347660000,
+        "phone": "+79103699998",
+        "email": "n_wong@gmail.com",
+        "contact1": null,
+        "contact2": null
+      },
+      "startDate": 1627308571000
+    },
+    {
+      "id": 3,
+      "subscriptionType": {
+        "id": 5,
+        "name": "Pass #5",
+        "section": { "id": 9, "name": "Boomerang throwing", "externalId": "boomerangThrowing" },
+        "endDate": 1622376000000,
+        "lessonsCount": 33,
+        "price": 50000,
+        "isActive": 0
+      },
+      "section": { "id": 9, "name": "Boomerang throwing", "externalId": "boomerangThrowing" },
+      "client": {
+        "id": 2,
+        "fio": "Stephen Snow",
+        "dateOfBirth": 1307035660000,
+        "phone": "+79552121336",
+        "email": "s_snow@gmail.com",
+        "contact1": { "fio": "Andy Strike", "phone": "+79771002398", "email": "a_strike@gmail.com" },
+        "contact2": null
+      },
+      "startDate": 1613052571000
+    },
+    {
+      "id": 4,
+      "subscriptionType": {
+        "id": 2,
+        "name": "Pass #2",
+        "section": { "id": 2, "name": "Judo", "externalId": "judo" },
+        "endDate": 1633003200000,
+        "lessonsCount": 15,
+        "price": 18000,
+        "isActive": 1
+      },
+      "section": { "id": 2, "name": "Judo", "externalId": "judo" },
+      "client": {
+        "id": 1,
+        "fio": "Michael Williams",
+        "dateOfBirth": 1266254860000,
+        "phone": "+79991023665",
+        "email": "m_wiliams@gmail.com",
+        "contact1": { "fio": "John Stone", "phone": "+79653661028", "email": "j_stone@gmail.com" },
+        "contact2": { "fio": "Anna Phillips", "phone": "+79657871900", "email": "a_phillips@gmail.com" }
+      },
+      "startDate": 1626351532000
+    }
+  ],
+  "rowCount": "4"
+}

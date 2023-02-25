@@ -1,0 +1,22 @@
+<div class="login-body">
+  <div class="login-panel"></div>
+  <div class="login-content">
+    <img src="assets/images/logo-blk.svg" alt="Logo" />
+    <h1><span>SCLUB</span> ADMIN</h1>
+    <p>Hello. Use the login form below.</p>
+
+    <div class="login-input-wrapper">
+      <span class="p-input-icon-right w-100">
+        <i class="pi pi-user"></i>
+        <input type="text" placeholder="Login" pInputText class="p-inputtext p-component" />
+      </span>
+    </div>
+    <div class="login-input-wrapper">
+      <span class="p-input-icon-right w-100">
+        <p-password placeholder="Pasword" mediumRegex class="w-100"></p-password>
+        <i class="pi pi-lock"></i>
+      </span>
+    </div>
+    <p-button label="Login" [routerLink]="['/admin']"></p-button>
+  </div>
+</div>

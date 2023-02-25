@@ -1,0 +1,32 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "fio": "Michael Williams",
+      "dateOfBirth": 1266254860000,
+      "phone": "+79991023665",
+      "email": "m_wiliams@gmail.com",
+      "contact1": { "fio": "John Stone", "phone": "+79653661028", "email": "j_stone@gmail.com" },
+      "contact2": { "fio": "Anna Phillips", "phone": "+79657871900", "email": "a_phillips@gmail.com" }
+    },
+    {
+      "id": 2,
+      "fio": "Stephen Snow",
+      "dateOfBirth": 1307035660000,
+      "phone": "+79552121336",
+      "email": "s_snow@gmail.com",
+      "contact1": { "fio": "Andy Strike", "phone": "+79771002398", "email": "a_strike@gmail.com" },
+      "contact2": null
+    },
+    {
+      "id": 3,
+      "fio": "Natali Wong",
+      "dateOfBirth": 968347660000,
+      "phone": "+79103699998",
+      "email": "n_wong@gmail.com",
+      "contact1": null,
+      "contact2": null
+    }
+  ],
+  "rowCount": "3"
+}

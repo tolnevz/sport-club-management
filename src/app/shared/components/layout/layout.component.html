@@ -1,0 +1,19 @@
+<p-toast position="bottom-right"></p-toast>
+<div class="app-wrapper">
+  <div class="app-sidebar" [ngClass]="{expanded: display && !commonService.isMobile$.value}">
+    <p-sidebar
+      [(visible)]="display"
+      [modal]="commonService.isMobile$.value"
+      [showCloseIcon]="false"
+      [transitionOptions]="commonService.isMobile$.value ? '150ms cubic-bezier(0, 0, 0.2, 1)' : '0ms'"
+    >
+      <app-menu></app-menu>
+    </p-sidebar>
+  </div>
+  <div class="app-main" [ngClass]="{'w-100': !display || commonService.isMobile$.value}">
+    <app-header [display]="display" (sidebarToggleEvent)="isShowSidebar($event)"></app-header>
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

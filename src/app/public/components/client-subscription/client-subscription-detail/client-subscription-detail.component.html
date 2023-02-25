@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="col-xs-12" [ngClass]="{'col-lg-6': !config.data?.id, 'mt-2': config.data?.id}">
+    <p-card [styleClass]="!config.data?.id ? 'card' : ''">
+      <p-header *ngIf="!config.data?.id">
+        <h5>Customer subscription card</h5>
+      </p-header>
+
+      <form [formGroup]="clientSubscriptionForm" (ngSubmit)="saveClientSubscription()" #form="ngForm">
+        <div class="p-fluid">
+          <div class="row">
+            <div class="col-lg-6 col-xs-12">
+              <div class="p-field">
+                <label for="client">Customer</label>
+                <p-dropdown
+                  [options]="clients"
+                  formControlName="client"
+                  placeholder="Select a customer"
+                  optionLabel="fio"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+              <div class="p-field">
+                <label for="subscriptionType">Type of subscription</label>
+                <p-dropdown
+                  [options]="subscriptionTypes"
+                  formControlName="subscriptionType"
+                  placeholder="Choose a subscription type"
+                  optionLabel="name"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+              <div class="p-field">
+                <label for="section">Sports section</label>
+                <p-dropdown
+                  [options]="sections"
+                  formControlName="section"
+                  placeholder="Select sports section"
+                  optionLabel="name"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+              <div class="p-field">
+                <label for="startDate">Start date</label>
+                <p-calendar dateFormat="dd.mm.yy" formControlName="startDate"></p-calendar>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input pButton pRipple type="submit" [disabled]="form.invalid" value="Save" class="p-ripple p-button p-component" />
+      </form>
+    </p-card>
+  </div>
+  <div class="col-lg-6 col-xs-12" [ngClass]="{'col-lg-12 mt-4': config.data?.id}">
+    <p-card styleClass="card">
+      <p-header>
+        <h5>Subscription renewals</h5>
+      </p-header>
+
+      <!-- TODO: move the table below into a separate component -->
+      <p-table
+        [columns]="cols"
+        [value]="subscriptionRenewals"
+        styleClass="p-datatable-striped"
+        [paginator]="true"
+        [rows]="rows"
+        [showCurrentPageReport]="true"
+        [(first)]="first"
+        [rowsPerPageOptions]="[5, 10, 20]"
+        [totalRecords]="rowCount"
+        [globalFilterFields]="['fio', 'name', 'client.fio', 'clientFio']"
+        [responsive]="true"
+        selectionMode="single"
+        styleClass="p-datatable-responsive-sclub"
+        #innerTable
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.objectFieldToShow ? col.field + '.' + col.objectFieldToShow : col.field">
+              {{ col.header }}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr (click)="showModal(rowData.id); $event.stopPropagation()">
+            <ng-container *ngFor="let col of columns">
+              <!-- Object fild -->
+              <td *ngIf="col.type === 'object'">
+                <span class="p-column-title">{{ col.header }}</span>
+                <!-- No subtype -->
+                <div *ngIf="!col.subtype">{{ rowData[col.field][col.objectFieldToShow] }}</div>
+
+                <!-- Date subtype -->
+                <div *ngIf="col.subtype === 'date'">{{ rowData[col.field][col.objectFieldToShow] | date: "d MMMM y" }}</div>
+              </td>
+
+              <!-- Date fild -->
+              <td *ngIf="col.type === 'date'">
+                <span class="p-column-title">{{ col.header }}</span>
+                {{ rowData[col.field] | date: "d MMMM y" }}
+              </td>
+
+              <!-- Price fild -->
+              <td *ngIf="col.type === 'price'">
+                <span class="p-column-title">{{ col.header }}</span>
+                {{ rowData[col.field] | currency: "RUB":"symbol" }}
+              </td>
+
+              <!-- Boolean fild -->
+              <td *ngIf="col.type === 'boolean'">
+                <span class="p-column-title">{{ col.header }}</span>
+                <div [innerHTML]="rowData[col.field] | status"></div>
+              </td>
+
+              <!-- Phone fild -->
+              <td *ngIf="col.type === 'phone'">
+                <span class="p-column-title">{{ col.header }}</span>
+                <div>
+                  <strong>{{ rowData[col.field] }}</strong>
+                  <span *ngIf="rowData.contact1"><br *ngIf="rowData[col.field]" />{{ rowData.contact1[col.field] }}</span>
+                  <span *ngIf="rowData.contact2"><br *ngIf="rowData[col.field]" />{{ rowData.contact2[col.field] }}</span>
+                </div>
+              </td>
+
+              <!-- Email fild -->
+              <td *ngIf="col.type === 'email'">
+                <span class="p-column-title">{{ col.header }}</span>
+                <div>
+                  <strong>{{ rowData[col.field] }}</strong>
+                  <span *ngIf="rowData.contact1"><br *ngIf="rowData[col.field]" />{{ rowData.contact1[col.field] }}</span>
+                  <span *ngIf="rowData.contact2"><br *ngIf="rowData[col.field]" />{{ rowData.contact2[col.field] }}</span>
+                </div>
+              </td>
+
+              <!-- Primitive field -->
+              <td *ngIf="!col.type">
+                <span class="p-column-title">{{ col.header }}</span>
+                {{ rowData[col.field] }}
+              </td>
+            </ng-container>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+              <td [attr.colspan]="columns.length + 1">
+                  <p class="text-center">No data</p>
+              </td>
+          </tr>
+      </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+</div>

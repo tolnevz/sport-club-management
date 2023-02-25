@@ -1,0 +1,11 @@
+<div class="app-topbar" [ngClass]="{'w-100': !display}">
+  <button pButton pRipple (click)="toggleSidebar(!display)" type="button" icon="pi pi-bars" class="p-button-rounded p-button-text app-menu-button"></button>
+  <button
+    [routerLink]="'/login'"
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-sign-out"
+    class="p-button-rounded p-button-text app-menu-button"
+  ></button>
+</div>

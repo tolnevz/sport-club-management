@@ -1,0 +1,36 @@
+.p-button.p-button-icon-only.p-button-rounded {
+  height: 44px;
+}
+
+::ng-deep .app-topbar {
+  position: fixed;
+  z-index: 998;
+  width: calc(100% - 250px);
+  transition: width .1s;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  top: 0;
+  right: 0;
+  padding: 8px 25px;
+  background-color: #2196F3;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+  .app-menu-button {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #ffffff;
+
+    &:hover {
+      background: #64b5f6 !important;
+      color: #ffffff !important;
+    }
+    span.pi {
+      font-size: 20px !important;
+    }
+  }
+}

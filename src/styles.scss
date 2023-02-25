@@ -1,0 +1,83 @@
+html {
+  font-size: 14px;
+}
+
+.p-input-icon-left,
+.p-input-icon-right {
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}
+.p-field > label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.p-field {
+  margin-bottom: 1rem;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"]::-webkit-file-upload-button,
+button {
+  border-radius: 4px;
+}
+
+.customer-badge {
+  border-radius: 2px;
+  padding: 0.25em 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.customer-badge.status-inactive {
+  background: #ffcdd2;
+  color: #c63737;
+}
+.customer-badge.status-active {
+  background: #c8e6c9;
+  color: #256029;
+}
+
+.p-accordion-header-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.p-accordion {
+  background: #ffffff;
+  color: #495057;
+  box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+  border-radius: 4px;
+}
+
+.p-accordion .p-accordion-header .p-accordion-header-link {
+  background: #ffffff;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+
+  .p-card-body {
+    .p-card-content {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .p-datatable {
+    &.p-datatable-responsive-sclub {
+      .p-datatable-tbody > tr {
+        border-bottom: 1px solid #e9ecef;
+      }
+      .p-datatable-tbody > tr > td {
+        display: flex !important;
+      }
+    }
+  }
+}

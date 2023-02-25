@@ -1,0 +1,23 @@
+.filter-input {
+  position: absolute;
+  top: -87px;
+  right: 0;
+}
+
+p-table {
+  td {
+    cursor: pointer;
+  }
+}
+
+::ng-deep.add-btn {
+  .p-button {
+    padding: 0.5rem 1.3rem;
+  }
+}
+
+::ng-deep .p-datatable .p-datatable-header {
+  padding: 0 !important;
+  border: none;
+}
+

@@ -1,0 +1,40 @@
+<p-card [styleClass]="!config.data?.id ? 'card' : 'no-shadow'">
+  <p-header *ngIf="!config.data?.id">
+    <h5>Extension of a client subscription</h5>
+  </p-header>
+
+  <form [formGroup]="subscriptionRenewalForm" (ngSubmit)="saveSubscriptionRenewal()" #form="ngForm">
+    <div class="p-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-xs-12">
+          <div class="p-field">
+            <label for="clientSubscription">Customer subscriptions</label>
+            <p-dropdown
+              [options]="clientSubscriptions"
+              formControlName="clientSubscription"
+              placeholder="Select a customer subscription"
+              optionLabel="client.fio"
+              [showClear]="true"
+            ></p-dropdown>
+          </div>
+          <div class="p-field">
+            <label for="section">Reason for extension</label>
+            <p-dropdown
+              [options]="reasons"
+              formControlName="reason"
+              placeholder="Select the reason for the extension"
+              [showClear]="true"
+            ></p-dropdown>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xs-12">
+          <div class="p-field">
+            <label for="extensionPeriod">Renewal period</label>
+            <p-calendar dateFormat="dd.mm.yy" formControlName="extensionPeriod"></p-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input pButton pRipple type="submit" [disabled]="form.invalid" value="Save" class="p-ripple p-button p-component" />
+  </form>
+</p-card>

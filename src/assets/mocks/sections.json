@@ -1,0 +1,16 @@
+{
+  "list": [
+    { "id": 1, "name": "Swimming", "externalId": "swimming" },
+    { "id": 2, "name": "Judo", "externalId": "judo" },
+    { "id": 3, "name": "Wrestling", "externalId": "wrestling" },
+    { "id": 4, "name": "Volleyball", "externalId": "volleyball" },
+    { "id": 5, "name": "Basketball", "externalId": "basketball" },
+    { "id": 6, "name": "Fencing", "externalId": "fencing" },
+    { "id": 7, "name": "Gymnastics", "externalId": "gymnastics" },
+    { "id": 8, "name": "Chess", "externalId": "chess" },
+    { "id": 9, "name": "Boomerang throwing", "externalId": "boomerangThrowing" },
+    { "id": 10, "name": "Karate", "externalId": "karate" },
+    { "id": 11, "name": "Powerlifting", "externalId": "powerlifting" }
+  ],
+  "rowCount": "11"
+}

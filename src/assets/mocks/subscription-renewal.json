@@ -1,0 +1,61 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "clientSubscription": {
+        "id": 1,
+        "subscriptionType": {
+          "id": 1,
+          "name": "Pass #1",
+          "section": { "id": 3, "name": "Wrestling", "externalId": "wrestling" },
+          "endDate": 1635595200000,
+          "lessonsCount": 30,
+          "price": 15000,
+          "isActive": 1
+        },
+        "section": { "id": 3, "name": "Wrestling", "externalId": "wrestling" },
+        "client": {
+          "id": 1,
+          "fio": "Michael Williams",
+          "dateOfBirth": 1266254860000,
+          "phone": "+79991023665",
+          "email": "m_wiliams@gmail.com",
+          "contact1": { "fio": "John Stone", "phone": "+79653661028", "email": "j_stone@gmail.com" },
+          "contact2": { "fio": "Anna Phillips", "phone": "+79657871900", "email": "a_phillips@gmail.com" }
+        },
+        "startDate": 1628604571000
+      },
+      "reason": "Doctor's note",
+      "extensionPeriod": 1638253977000
+    },
+    {
+      "id": 2,
+      "clientSubscription": {
+        "id": 2,
+        "subscriptionType": {
+          "id": 4,
+          "name": "Pass #4",
+          "section": { "id": 5, "name": "Basketball", "externalId": "basketball" },
+          "endDate": 1628172571000,
+          "lessonsCount": 10,
+          "price": 10000,
+          "isActive": 1
+        },
+        "section": { "id": 5, "name": "Basketball", "externalId": "basketball" },
+        "client": {
+          "id": 3,
+          "fio": "Natali Wong",
+          "dateOfBirth": 968347660000,
+          "phone": "+79103699998",
+          "email": "n_wong@gmail.com",
+          "contact1": null,
+          "contact2": null
+        },
+        "startDate": 1627308571000
+      },
+      "reason": "Discretion of the director/administrator",
+      "extensionPeriod": 1630477977000
+    }
+  ],
+  "rowCount": "2"
+}

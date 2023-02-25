@@ -1,0 +1,172 @@
+<form [formGroup]="clientForm" (ngSubmit)="saveClient()" #form="ngForm">
+  <div class="row">
+    <div class="col-lg-5 col-xs-12">
+      <p-card styleClass="card">
+        <p-header>
+          <h5>Customer card</h5>
+        </p-header>
+
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="fio">Name</label>
+            <input type="text" pInputText formControlName="fio" />
+          </div>
+          <div class="p-field">
+            <label for="dateOfBirth">Date of birth</label>
+            <p-calendar dateFormat="dd.mm.yy" formControlName="dateOfBirth"></p-calendar>
+          </div>
+          <div class="p-field">
+            <label for="phone">Phone</label>
+            <p-inputMask formControlName="phone" mask="+7 (999) 999-9999"></p-inputMask>
+          </div>
+          <div class="p-field">
+            <label for="email">Email</label>
+            <input type="email" pInputText formControlName="email" />
+          </div>
+        </div>
+
+        <input pButton pRipple type="submit" [disabled]="form.invalid" value="Save" class="p-ripple p-button p-component mt-4" />
+      </p-card>
+    </div>
+    <div class="col-lg-7 col-xs-12">
+      <p-accordion>
+        <p-accordionTab header="Contacts" [selected]="false">
+          <div class="row p-3">
+            <div class="col-lg-5 col-xs-12">
+              <div class="p-fluid">
+                <div class="p-field">
+                  <label for="contact1_fio">Name</label>
+                  <input type="text" pInputText formControlName="contact1_fio" />
+                </div>
+                <div class="p-field">
+                  <label for="contact1_phone">Phone</label>
+                  <p-inputMask formControlName="contact1_phone" mask="+7 (999) 999-9999"></p-inputMask>
+                </div>
+                <div class="p-field">
+                  <label for="contact1_email">Email</label>
+                  <input type="contact1_email" pInputText formControlName="contact1_email" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 d-md-none d-none d-lg-block d-xl-block">
+              <p-divider layout="vertical">
+                <i class="pi pi-users" style="font-size: 1.7rem"></i>
+              </p-divider>
+            </div>
+            <div class="col-lg-5 col-xs-12">
+              <div class="p-fluid">
+                <div class="p-field">
+                  <label for="contact2_fio">Name</label>
+                  <input type="text" pInputText formControlName="contact2_fio" />
+                </div>
+                <div class="p-field">
+                  <label for="contact2_phone">Phone</label>
+                  <p-inputMask formControlName="contact2_phone" mask="+7 (999) 999-9999"></p-inputMask>
+                </div>
+                <div class="p-field">
+                  <label for="contact2_email">Email</label>
+                  <input type="contact2_email" pInputText formControlName="contact2_email" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+
+      <p-card styleClass="card mt-4">
+        <p-header>
+          <h5>Subscriptions</h5>
+        </p-header>
+
+        <!-- TODO: move the table below into a separate component -->
+        <p-table
+          [columns]="cols"
+          [value]="clientSubscriptions"
+          styleClass="p-datatable-striped"
+          [paginator]="true"
+          [rows]="rows"
+          [showCurrentPageReport]="true"
+          [(first)]="first"
+          [rowsPerPageOptions]="[5, 10, 20]"
+          [totalRecords]="rowCount"
+          [globalFilterFields]="['fio', 'name', 'client.fio', 'clientFio']"
+          [responsive]="true"
+          selectionMode="single"
+          styleClass="p-datatable-responsive-sclub"
+          #innerTable
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th
+                *ngFor="let col of columns"
+                [pSortableColumn]="col.objectFieldToShow ? col.field + '.' + col.objectFieldToShow : col.field"
+              >
+                {{ col.header }}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr (click)="showModal(rowData.id); $event.stopPropagation()">
+              <ng-container *ngFor="let col of columns">
+                <!-- Object fild -->
+                <td *ngIf="col.type === 'object'">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  <!-- No subtype -->
+                  <div *ngIf="!col.subtype">{{ rowData[col.field][col.objectFieldToShow] }}</div>
+
+                  <!-- Date subtype -->
+                  <div *ngIf="col.subtype === 'date'">{{ rowData[col.field][col.objectFieldToShow] | date: "d MMMM y" }}</div>
+                </td>
+
+                <!-- Date fild -->
+                <td *ngIf="col.type === 'date'">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  {{ rowData[col.field] | date: "d MMMM y" }}
+                </td>
+
+                <!-- Price fild -->
+                <td *ngIf="col.type === 'price'">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  {{ rowData[col.field] | currency: "RUB":"symbol" }}
+                </td>
+
+                <!-- Boolean fild -->
+                <td *ngIf="col.type === 'boolean'">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  <div [innerHTML]="rowData[col.field] | status"></div>
+                </td>
+
+                <!-- Phone fild -->
+                <td *ngIf="col.type === 'phone'">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  <div>
+                    <strong>{{ rowData[col.field] }}</strong>
+                    <span *ngIf="rowData.contact1"><br *ngIf="rowData[col.field]" />{{ rowData.contact1[col.field] }}</span>
+                    <span *ngIf="rowData.contact2"><br *ngIf="rowData[col.field]" />{{ rowData.contact2[col.field] }}</span>
+                  </div>
+                </td>
+
+                <!-- Email fild -->
+                <td *ngIf="col.type === 'email'">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  <div>
+                    <strong>{{ rowData[col.field] }}</strong>
+                    <span *ngIf="rowData.contact1"><br *ngIf="rowData[col.field]" />{{ rowData.contact1[col.field] }}</span>
+                    <span *ngIf="rowData.contact2"><br *ngIf="rowData[col.field]" />{{ rowData.contact2[col.field] }}</span>
+                  </div>
+                </td>
+
+                <!-- Primitive field -->
+                <td *ngIf="!col.type">
+                  <span class="p-column-title">{{ col.header }}</span>
+                  {{ rowData[col.field] }}
+                </td>
+              </ng-container>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+<p-card styleClass="card">
+  <p-header>
+    <h5>Editing the coach</h5>
+  </p-header>
+
+  <form [formGroup]="coachForm" (ngSubmit)="saveCoach()" #form="ngForm">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="fio">Name</label>
+        <input id="fio" type="text" pInputText formControlName="fio" />
+      </div>
+      <div class="p-field">
+        <label for="section">Sport section</label>
+        <p-dropdown
+          [options]="sections"
+          formControlName="section"
+          placeholder="Select sport section"
+          optionLabel="name"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+    </div>
+    <input pButton pRipple type="submit" [disabled]="form.invalid" value="Save" class="p-ripple p-button p-component" />
+  </form>
+</p-card>

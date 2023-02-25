@@ -1,0 +1,80 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "fio": "Garner Wallworth",
+      "section": { "id": 3, "name": "Wrestling", "externalId": "wrestling" }
+    },
+    {
+      "id": 2,
+      "fio": "Jessie Ricardot",
+      "section": { "id": 1, "name": "Swimming", "externalId": "swimming" }
+    },
+    {
+      "id": 3,
+      "fio": "Paulita Ruspine",
+      "section": { "id": 8, "name": "Chess", "externalId": "chess" }
+    },
+    {
+      "id": 4,
+      "fio": "Danny Jurewicz",
+      "section": { "id": 2, "name": "Judo", "externalId": "judo" }
+    },
+    {
+      "id": 5,
+      "fio": "Dasie Winters",
+      "section": { "id": 11, "name": "Powerlifting", "externalId": "powerlifting" }
+    },
+    {
+      "id": 6,
+      "fio": "Francklin Leasor",
+      "section": { "id": 5, "name": "Basketball", "externalId": "basketball" }
+    },
+    {
+      "id": 7,
+      "fio": "Tara Climo",
+      "section": { "id": 7, "name": "Gymnastics", "externalId": "gymnastics" }
+    },
+    {
+      "id": 8,
+      "fio": "Hedvig Birdsall",
+      "section": { "id": 2, "name": "Judo", "externalId": "judo" }
+    },
+    {
+      "id": 9,
+      "fio": "Wendy Prawle",
+      "section": { "id": 11, "name": "Powerlifting", "externalId": "powerlifting" }
+    },
+    {
+      "id": 10,
+      "fio": "Troy Rushton",
+      "section": { "id": 6, "name": "Fencing", "externalId": "fencing" }
+    },
+    {
+      "id": 11,
+      "fio": "Luisa Webbe",
+      "section": { "id": 7, "name": "Gymnastics", "externalId": "gymnastics" }
+    },
+    {
+      "id": 12,
+      "fio": "Jerald Horrigan",
+      "section": { "id": 8, "name": "Chess", "externalId": "chess" }
+    },
+    {
+      "id": 13,
+      "fio": "Teodoor Gudgion",
+      "section": { "id": 3, "name": "Wrestling", "externalId": "wrestling" }
+    },
+    {
+      "id": 14,
+      "fio": "Guillema Schrei",
+      "section": { "id": 2, "name": "Judo", "externalId": "judo" }
+    },
+    {
+      "id": 15,
+      "fio": "Billye Demoge",
+      "section": { "id": 9, "name": "Boomerang throwing", "externalId": "boomerangThrowing" }
+    }
+  ],
+  "rowCount": "15"
+}
