@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sclub2": {
+    "sclub": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sclub2",
+            "outputPath": "dist/sclub",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -45,7 +45,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "900kb",
+                  "maximumWarning": "2mb",
                   "maximumError": "3mb"
                 },
                 {
@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "sclub2:build:production"
+              "browserTarget": "sclub:build:production"
             },
             "development": {
-              "browserTarget": "sclub2:build:development"
+              "browserTarget": "sclub:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sclub2:build"
+            "browserTarget": "sclub:build"
           }
         },
         "test": {
@@ -121,7 +121,7 @@
       }
     }
   },
-  "defaultProject": "sclub2",
+  "defaultProject": "sclub",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
